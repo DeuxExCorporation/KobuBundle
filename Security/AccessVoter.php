@@ -36,37 +36,37 @@ class AccessVoter extends AbstractVoter
             {
                 case self::VIEW:
 
-/*                    $resultado = ($entidad->getEstado() === true) ? true : false;
+                  $resultado = ($entidad->getEstado() === true) ? true : false;
 
-                    return $resultado;*/
+                    return $resultado;
 
-                    return true;
+
 
                     break;
 
                 case self::EDIT:
-/*                    $resultado = ($entidad->getEditar() === true) ? false : true;
+                    $resultado = ($entidad->getEditar() === true) ? false : true;
 
-                    return $resultado;*/
+                    return $resultado;
 
-                    return false;
+
 
                     break;
 
                 case self::DELETE:
-/*                    $resultado = ($entidad->getBorrar() === true) ? true : false;
-                    return $resultado;*/
+                 $resultado = ($entidad->getBorrar() === true) ? true : false;
+                    return $resultado;
 
-                    return true;
+
 
                     break;
 
                 case self::CREATE:
-/*                    $resultado = ($entidad->getCrear() === true) ? true : false;
-                    return $resultado;*/
+                  $resultado = ($entidad->getCrear() === true) ? true : false;
+                    return $resultado;
 
 
-                    return true;
+
 
                     break;
 

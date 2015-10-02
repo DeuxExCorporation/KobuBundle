@@ -1,0 +1,14 @@
+services:
+    security.access.backend_permisos_voter:
+        class:      Destiny\KobuBundle\Security\AccessVoter
+        public:     false
+        tags:
+            - { name: security.voter }
+
+    destiny_kobubundle.form.type.protectoras:
+        class:  Destiny\KobuBundle\Form\Type\ProtectorasType
+        arguments: ["@doctrine.orm.entity_manager", "@translator.default"]
+        tags:
+            - { name: form.type }
+
+    protectoras: "@destiny_kobubundle.form.type.protectoras"

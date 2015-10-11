@@ -17,9 +17,12 @@ class ProtectorasLoader extends AbstractFixture implements  FixtureInterface, Or
 
         for ($i=0;$i<=rand(3,10);$i++)
         {
+            $var = rand(0,1);
             $potectora = new Protectoras();
-            $potectora->setNombre('Nombre '.$i)->setDescripcion('Nombre')->setEstado(true);
-
+            $potectora->setNombre('Protectora '.$i)->setDescripcion('Nombre')->setEstado(true);
+            $potectora->addUsuario($manager->getRepository('DestinyAppBundle:Usuarios')->getOne('usuario_protectora'.$var))
+                      ->setDireccion('Calle falsa 123')->setCiudad('Cambados')->setProvincia('Pontevedra')->setPais('España')
+                      ->setTelefono(651029182)->setMovil(651029182);
 
             $manager->persist($potectora);
         }

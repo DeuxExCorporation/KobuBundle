@@ -1,0 +1,89 @@
+configuration:
+    list:
+        kobu: Proyecyo Kobu
+        permisos: Gestión de permisos
+        protectoras: Protectoras
+        perros: Perros
+        razas: Razas
+        redessocialesprotectoras: Redes Sociales
+        mensajesProtectoras: Mensajes
+
+protectoras:
+    list:
+        title: Protectoras
+        name: Nombre
+        status: Estado
+        new: Añadir protectora
+        back: Volver al listado
+
+    form:
+        name: Nombre
+        description: Descripción
+        status: Estado
+
+backendPermisosKobu:
+    list:
+        title: Gestión de permisos KOBUAPP
+        name: Entidad
+        status: Acceso
+        back: Regresr al listado
+        save: Guardar
+
+empresaContacto:
+    form:
+        web: Pagina Web
+        email: E-mail
+
+protectorasPerros:
+    list:
+        title: Listado de perros
+        newgroup: Añadir perro a
+        name: Nombre
+        status: Estado
+        raza: Raza
+        back: Regresr al listado
+        save: Guardar datos del perro
+
+    form:
+        nombre: Nombre
+        description: Descripción
+        estado: Estado
+
+protectorasRazasPerros:
+    list:
+        title: Razas de perros
+        name: Nombre
+        status: Estado
+        back: Regresr al listado
+        save: Guardar datos de la raza
+        new: Añadir raza
+
+    form:
+        nombre: Nombre
+        description: Descripción
+        estado: Estado
+
+ProtectorasRedesSociales:
+    list:
+        title: Listado de redes sociales de las protectoras
+        newgroup: Añadir red social a
+        name: Nombre
+        status: Estado
+        back: Regresr al listado
+        save: Guardar datos
+
+ProtectorasMensajes:
+    list:
+        title: Mensajes
+        name: Email
+        subject: Asunto
+        status: Leido
+        back: Volver
+        save: Guardar
+        edit: Actual
+
+    form:
+        email: Email
+        telephone: Telefono
+        subject: Asunto
+        body: Mensaje

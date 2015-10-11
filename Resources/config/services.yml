@@ -1,7 +1,14 @@
 services:
-    security.access.backend_permisos_voter:
-        class:      Destiny\KobuBundle\Security\AccessVoter
+
+    app.permisos_kobu_repository:
+        class:     Doctrine\ORM\EntityRepository
+        factory:   ["@doctrine.orm.entity_manager", getRepository]
+        arguments: [Destiny\KobuBundle\Entity\BackendPermisosKobu]
+
+    security.access.backend_kobu_permisos_voter:
+        class:      Destiny\KobuBundle\Security\AccessVoterKobu
         public:     false
+        arguments: ["@app.permisos_kobu_repository"]
         tags:
             - { name: security.voter }
 
@@ -12,3 +19,47 @@ services:
             - { name: form.type }
 
     protectoras: "@destiny_kobubundle.form.type.protectoras"
+
+    destiny_kobubundle.form.type.backendpermisoskobu:
+        class:  Destiny\KobuBundle\Form\Type\BackendPermisosKobuType
+        arguments: ["@doctrine.orm.entity_manager", "@translator.default","@backendPermisos"]
+        tags:
+            - { name: form.type }
+
+    backendpermisoskobu: "@destiny_kobubundle.form.type.backendpermisoskobu"
+
+    destiny_kobubundle.form.type.mensajesprotectoras:
+        class:  Destiny\KobuBundle\Form\Type\ProtectorasMensajesType
+        arguments: ["@doctrine.orm.entity_manager", "@translator.default"]
+        tags:
+            - { name: form.type }
+
+    protectorasMensajes: "@destiny_kobubundle.form.type.mensajesprotectoras"
+
+    destiny_kobubundle.form.type.redes.sociales.protectoras:
+        class:  Destiny\KobuBundle\Form\Type\ProtectorasRedesSocialesType
+        arguments: ["@doctrine.orm.entity_manager","@translator.default","@security.token_storage","@security.authorization_checker"]
+        tags:
+            - { name: form.type }
+
+    protectorasRedesSociales: "@destiny_kobubundle.form.type.redes.sociales.protectoras"
+
+
+    destiny_kobubundle.form.type.perros.protectoras:
+        class:  Destiny\KobuBundle\Form\Type\ProtectorasPerrosType
+        arguments: ["@doctrine.orm.entity_manager","@translator.default","@security.token_storage","@security.authorization_checker"]
+        tags:
+            - { name: form.type }
+
+    protectorasPerros: "@destiny_kobubundle.form.type.perros.protectoras"
+
+    destiny_kobubundle.form.type.razas:
+        class:  Destiny\KobuBundle\Form\Type\ProtectorasRazaPerrosType
+        arguments: ["@doctrine.orm.entity_manager", "@translator.default"]
+        tags:
+            - { name: form.type }
+
+    protectorasRazasPerros: "@destiny_kobubundle.form.type.razas"
+
+
+
